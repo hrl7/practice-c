@@ -1,0 +1,11 @@
+
+cflags = -Wall -fcolor-diagnostics -g
+
+rule ld
+  command = gcc $ldlags $in -o $out
+rule cc
+  command = gcc $cflags -c $in -o $out
+
+build main.o: cc main.c
+build cell.o: cc cell.c
+build repl: ld cell.o main.o

@@ -19,7 +19,7 @@ void repl()
   result = scanf("%s",buf);
   while(result == 1)
   {
-    printf("Answer:%d,  %d\n",result ,parse(buf));
+    printf("Answer: %d\n",parse(buf));
     printf("\n==>");
     result = scanf("%s",buf);
   }

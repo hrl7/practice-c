@@ -1,0 +1,16 @@
+
+cflags = -Wall -fcolor-diagnostics -g
+
+rule ld
+  command = gcc $ldlags $in -o $out
+rule cc
+  command = gcc $cflags -c $in -o $out
+
+rule run
+  command = ./$in
+
+build main.o: cc main.c
+build node.o: cc node.c
+build parse.o: cc parse.c
+build calc: ld main.o  node.o parse.o
+build run: run calc
